@@ -1,0 +1,8 @@
+{
+  "name": "myNFCApp",
+  "app_id": "dc9ae8d6",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
