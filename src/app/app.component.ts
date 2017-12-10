@@ -1,3 +1,5 @@
+import { WritePage } from './../pages/write/write';
+import { DatabaseDataPage } from './../pages/database-data/database-data';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -24,7 +26,9 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
-      {title: 'Register', component: RegisterPage}
+      {title: 'Register', component: RegisterPage},
+      {title: 'See database', component: DatabaseDataPage},
+      {title: 'Write data', component: WritePage}
     ];
 
   }

@@ -1,4 +1,6 @@
 import { RegisterPage } from './../pages/register/register';
+import { DatabaseDataPage } from './../pages/database-data/database-data';
+import { WritePage } from './../pages/write/write';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -18,7 +20,10 @@ import {HTTP} from '@ionic-native/http';
     MyApp,
     HomePage,
     ListPage,
-    RegisterPage
+    RegisterPage,
+    DatabaseDataPage,
+    WritePage
+
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,9 @@ import {HTTP} from '@ionic-native/http';
     MyApp,
     HomePage,
     ListPage,
-    RegisterPage
+    RegisterPage,
+    DatabaseDataPage,
+    WritePage
   ],
   providers: [
     StatusBar,

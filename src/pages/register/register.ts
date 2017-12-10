@@ -91,22 +91,7 @@ test: String;
     });
 
     //this.http.post("bardberry:4200", "hallo", "lol");
-    this.http.get('http://192.168.0.247:3000/tasks', {}, {})
-    .then(data => {
-  
-      console.log(data.status);
-      console.log(data.data); // data received by server
-      console.log(data.headers);
-  
-    })
-    .catch(error => {
-  
-      console.log(error.status);
-      console.log(error.error); // error message as string
-      console.log(error.headers);
-  
-    });
-
+    
    
   }
 
