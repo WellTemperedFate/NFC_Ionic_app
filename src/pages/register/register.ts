@@ -19,14 +19,38 @@ export class RegisterPage {
 tag : Uint8Array;
 rnummer: String;
 name: String;
+showSymbol: Boolean = false;
+test: String;
   constructor(public navCtrl: NavController, public navParams: NavParams, private nfc: NFC, private ndef: Ndef, private http: HTTP) {
+    
   }
 
+  //Sends the post data to the server!
+  SendPostData(){
+    this.http.post('http://192.168.0.247:3000/tasks', 
+    { 
+      name : this.name,
+      rnummer: this.rnummer,
+      tagid: this.tag
+    }, 
+    {
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(data => {
+      console.log(data.data);
+    }).catch(error => {
+      console.log(error.status);
+    });
+
+    console.log("button Clicked");
+  }
+
+
+  //Event handler for when the page is loaded
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
     if(this.nfc.enabled())
     {
-
       console.log("nfc is enabled!");
     }
 
@@ -47,32 +71,27 @@ name: String;
     }, (err) => {
       console.log('error attaching ndef listener', err);
     }).subscribe((event) => {
+      this.tag = null;
       console.log('received ndef message. the tag contains: ', event.tag);
        this.tag = event.tag.id;
+       if(this.tag != null)
+       {
+         this.showSymbol = true;
+       }
+
+       else
+       {
+          this.showSymbol = false;
+       }
        console.log("value: ");
        console.log(this.tag);
        console.log('decoded tag id', this.nfc.bytesToHexString(event.tag.id));
        console.log('dit is het R-Nummer: ', this.rnummer);
-       console.log('dit is de naam: ', this.name);
-
-       this.http.post('http://192.168.0.247:3000/tasks', 
-       { 
-         name : this.name,
-         rnummer: this.rnummer
-       }, 
-       {
-         headers: { 'Content-Type': 'application/json' }
-       })
-       .then(data => {
-         console.log(data.data);
-       }).catch(error => {
-         console.log(error.status);
-       });
-    
+       console.log('dit is de naam: ', this.name);    
     });
 
     //this.http.post("bardberry:4200", "hallo", "lol");
-    /*this.http.get('http://ionic.io', {}, {})
+    this.http.get('http://192.168.0.247:3000/tasks', {}, {})
     .then(data => {
   
       console.log(data.status);
@@ -86,7 +105,7 @@ name: String;
       console.log(error.error); // error message as string
       console.log(error.headers);
   
-    });*/
+    });
 
    
   }
