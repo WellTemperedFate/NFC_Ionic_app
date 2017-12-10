@@ -7,12 +7,22 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>DatabaseData</ion-title>
+    <ion-title>Database Data</ion-title>
+    
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+    <ion-list>
+      <ion-title>Database entries: </ion-title>
+        <ion-item *ngFor="let jsonData of items">
+          <ion-list>
+            <ion-item>{{jsonData.name}}</ion-item>
+            <ion-item>{{jsonData.rnummer}}</ion-item>
+            <ion-item>{{jsonData.tagid}}</ion-item>
+          </ion-list>
+        </ion-item>
+    </ion-list>
 </ion-content>
