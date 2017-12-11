@@ -17,4 +17,5 @@ In powershell, go to the folder you cloned this repository in and type the follo
 I made this for a small project for Vives hogeschool, so feel free to use, change,... the code.
 
 Have a good one
+
 Giovanni Allemeersch
