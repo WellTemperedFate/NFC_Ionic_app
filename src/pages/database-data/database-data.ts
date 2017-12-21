@@ -24,19 +24,15 @@ index: Number;
   ionViewDidLoad() {
     console.log('ionViewDidLoad DatabaseDataPage');
 
-    this.http.get('http://192.168.0.113:3000/tasks', {}, {}) //thuis 192.168.0.247
+    this.http.get('http://10.207.7.31:3000/tasks', {}, {}) //thuis 192.168.0.247 Kot: 192.168.0.113
     .then(data => {
     console.log(data.data);
     this.items = JSON.parse(data.data);
-    console.log(this.items);
-    var nameArray = [];
-    console.log("6e element: ", this.items[6]);
-    console.log("6e element de naam: ", this.items[6].name);
-
+    
     for(var i = 0; i<this.items.length; i++)
     {
       console.log("Naam: ", this.items[i].name);
-      console.log("R-nummer: ", this.items[i].rnummer);
+      console.log("R-nummer: ", this.items[i].rnummer); //puur voor debug redenen
       console.log("TagId: ", this.items[i].tagid);
     }
     /*items.array.forEach(element => {
@@ -56,8 +52,6 @@ index: Number;
       console.log(error.headers);
   
     });
-
-    //this.http.get('http://192.168.0.247:3000/tasks').map(res => ())
 
   }
 

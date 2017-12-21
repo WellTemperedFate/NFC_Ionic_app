@@ -27,7 +27,7 @@ test: String;
 
   //Sends the post data to the server!
   SendPostData(){
-    this.http.post('http://192.168.0.247:3000/tasks', 
+    this.http.post('http://10.207.7.31:3000/tasks', 
     { 
       name : this.name,
       rnummer: this.rnummer,
@@ -38,11 +38,13 @@ test: String;
     })
     .then(data => {
       console.log(data.data);
+      alert("Data has been successfully posted! :D");
     }).catch(error => {
       console.log(error.status);
+      alert("Failed to make post request :(");
     });
 
-    console.log("button Clicked");
+    //console.log("button Clicked");
   }
 
 
@@ -58,7 +60,7 @@ test: String;
       console.log("nfc is not enabled :(");
 
       this.nfc.addTagDiscoveredListener(() => {
-        console.log("added a TagDiscover listener")
+        console.log("added a TagDiscover listener");
         
       }, (err) => { 
         console.log(err);
@@ -89,8 +91,6 @@ test: String;
        console.log('dit is het R-Nummer: ', this.rnummer);
        console.log('dit is de naam: ', this.name);    
     });
-
-    //this.http.post("bardberry:4200", "hallo", "lol");
     
    
   }

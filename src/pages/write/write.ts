@@ -27,7 +27,7 @@ export class WritePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WritePage');
-
+    
     if(this.nfc.enabled())
     {
       console.log("nfc is enabled!");
@@ -35,54 +35,45 @@ export class WritePage {
 
     else
       console.log("nfc is not enabled :(");
-
-      this.nfc.addTagDiscoveredListener(() => {
-        console.log("added a TagDiscover listener")
+    
         
-      }, (err) => { 
-        console.log(err);
-      }).subscribe((event) => {
-        console.log("Tag spotted!");
-        this.status = "Tag was placed, ready to write";
-      });
-
-    this.nfc.addNdefFormatableListener(() => {
-      console.log('successfully attached ndef listener');
-    }, (err) => {
-      console.log('error attaching ndef listener', err);
-    }).subscribe((event) => {
-      this.tag = null;
-      console.log('received ndef message. the tag contains: ', event.tag);
-       this.tag = event.tag.id;
-       if(this.tag != null)
-       {
-         this.showSymbol = true;
-         this.writeReady = true;
-       }
-
-       else
-       {
-          this.showSymbol = false;
-       }
-       console.log("value: ");
-       console.log(this.tag);
-       console.log('decoded tag id', this.nfc.bytesToHexString(event.tag.id)); 
-    });
-
-  
-  }
-
-  writeNFC(){
-    if(this.writeReady == true)
-      {
-        this.nfc.write(this.ndef.textRecord(this.input.toString()));
-        this.writeReady = false;
-        this.showSymbol = true;
-        alert("Message has been written");
       }
 
-    else
-      alert("please place a tag before trying to write!");
+      writeNFC()
+      {
+        if(this.input != "" && this.input != null)
+        {
+        this.status = "approach a tag!";
+        this.nfc.addNdefListener(()=>{
+          console.log("Event listener for tag discovery added successfully");
+        },(error)=>{
+          console.log(error);
+        }).subscribe((data) => {
+          if(data != null)
+          {  
+            
+            console.log(data.tag);
+            var some_value = data.tag.ndefMessage[0]["payload"];
+            console.log(data.tag.ndefMessage[0]);
+            var string_value = this.nfc.bytesToString(some_value);
+            console.log(string_value);
+            var record = this.ndef.textRecord(this.input.toString());
+            console.log(record);
+
+            this.nfc.write([record]).then(()=>{
+              console.log("write succeeded!");
+              alert("writing succeeded!");
+            }).catch(err=>{
+              console.log(err);
+            });
+          }
+          else
+            console.log("nee");
+        });
+      }
+
+      else
+        this.status = "please enter an input first";
+      }
   }
-}
 
