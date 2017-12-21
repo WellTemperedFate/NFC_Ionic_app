@@ -21,13 +21,14 @@ rnummer: String;
 name: String;
 showSymbol: Boolean = false;
 test: String;
+ip: String;
   constructor(public navCtrl: NavController, public navParams: NavParams, private nfc: NFC, private ndef: Ndef, private http: HTTP) {
     
   }
 
   //Sends the post data to the server!
   SendPostData(){
-    this.http.post('http://10.207.7.31:3000/tasks', 
+    this.http.post(this.ip.toString(),  //http://10.207.7.31:3000/tasks
     { 
       name : this.name,
       rnummer: this.rnummer,

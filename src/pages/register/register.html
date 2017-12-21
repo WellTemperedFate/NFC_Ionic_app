@@ -14,7 +14,7 @@
   
   
   <ion-content padding>
-    <p>Dit is een testpagina, hier komt het registratieformulier</p>
+    <p>Here you can register your NFC tag to the raspberry pi</p>
     <ion-list>
       <ion-item>
         <ion-label color="primary">Name:</ion-label>
@@ -28,7 +28,12 @@
   
       <ion-item>
         <ion-label color="primary">NFC-Tag</ion-label>
-        <ion-input placeholder="[xxxx-xxxx-xxxx-xxxx]" [ngModel] = "tag"></ion-input>
+        <ion-input placeholder="[xxx,xxx,xxx,xxx]" [ngModel] = "tag"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary">Ip-Adress</ion-label>
+        <ion-input placeholder="192.168.0.2" [ngModel] = "ip"></ion-input>
       </ion-item>
 
       <ion-item  [hidden] = "showSymbol">

@@ -17,24 +17,12 @@
     <ion-list>
         <ion-item>
           <ion-label color="primary">Status:</ion-label>
-          <ion-input placeholder="Place Tag" [(ngModel)] = "status"></ion-input>
+          <ion-input placeholder="Waiting for input" [(ngModel)] = "status" [disabled]=true></ion-input>
         </ion-item>
         <ion-item>
             <ion-label color="primary">input:</ion-label>
-            <ion-input placeholder="what you wish to write" [(ngModel)] = "input"></ion-input>
+            <ion-input placeholder="what you wish to write" [(ngModel)] = "input" (change)= 'changeStatus()'></ion-input>
         </ion-item>
-
-        <ion-item  [hidden] = "showSymbol">
-            <div id="loaderDiv">
-              <div class="loader"></div>
-            </div>
-          </ion-item>
-    
-          <ion-item [hidden] = "!showSymbol">
-            <div id = "vinkjeDiv">
-              <img src="vinkje.png" width=200 height=200/>
-            </div>
-          </ion-item>
 
     </ion-list>
 

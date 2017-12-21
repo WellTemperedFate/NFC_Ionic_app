@@ -19,10 +19,9 @@ export class WritePage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private nfc: NFC, private ndef: Ndef) {
   }
   tag : Uint8Array;
-  showSymbol: Boolean = false;
   status: String;
   input: String;
-  writeReady: Boolean = false;
+
 
 
   ionViewDidLoad() {
@@ -41,7 +40,7 @@ export class WritePage {
 
       writeNFC()
       {
-        if(this.input != "" && this.input != null)
+        if(this.input != "" && this.input != null && this.nfc.enabled())
         {
         this.status = "approach a tag!";
         this.nfc.addNdefListener(()=>{
@@ -68,12 +67,21 @@ export class WritePage {
             });
           }
           else
-            console.log("nee");
+            console.log("No input given, so that won't work :(");
         });
       }
 
       else
         this.status = "please enter an input first";
+      }
+
+      changeStatus()
+      {
+        if(this.input != null && this.input != "")
+          this.status = "click the button to continue";
+
+        else
+          this.status = "Waiting for input";
       }
   }
 
