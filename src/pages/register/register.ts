@@ -55,11 +55,6 @@ ip: String;
     if(this.nfc.enabled())
     {
       console.log("nfc is enabled!");
-    }
-
-    else
-      console.log("nfc is not enabled :(");
-
       this.nfc.addTagDiscoveredListener(() => {
         console.log("added a TagDiscover listener");
         
@@ -92,6 +87,12 @@ ip: String;
        console.log('dit is het R-Nummer: ', this.rnummer);
        console.log('dit is de naam: ', this.name);    
     });
+    }
+
+    else
+      console.log("nfc is not enabled :(");
+
+     
     
    
   }
