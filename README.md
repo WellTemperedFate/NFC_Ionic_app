@@ -12,6 +12,14 @@ In powershell, go to the folder you cloned this repository in and type the follo
 
   `ionic cordova run --device`
 
+For the Server on the raspberry pi, you will need to install mongoose, node.js, express and mongodB.
+
+to run the server after installing this, simply enter this folder and type in the following command:
+
+   `npm run start`
+
+This will make it run on port 3000 standard
+
 ## Contributing
 
 I made this for a small project for Vives hogeschool, so feel free to use, change,... the code.

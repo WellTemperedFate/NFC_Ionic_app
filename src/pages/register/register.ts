@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import {NFC} from '@ionic-native/nfc';
 import {Ndef} from '@ionic-native/nfc';
 import{HTTP} from '@ionic-native/http';
@@ -10,7 +10,7 @@ import{HTTP} from '@ionic-native/http';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-register',
   templateUrl: 'register.html',

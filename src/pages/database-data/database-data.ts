@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { HTTP } from "@ionic-native/http";
 
 /**
@@ -9,7 +9,7 @@ import { HTTP } from "@ionic-native/http";
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-database-data',
   templateUrl: 'database-data.html',

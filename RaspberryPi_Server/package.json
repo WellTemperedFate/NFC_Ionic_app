@@ -1,0 +1,33 @@
+{
+  "name": "nfc_mongo",
+  "version": "1.0.0",
+  "description": "Attempt 2 NFC database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WellTemperedFate/NFC_Server.git"
+  },
+  "keywords": [
+    "NFC",
+    "Mongodb",
+    "http",
+    "school"
+  ],
+  "author": "Giovanni Allemeersch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WellTemperedFate/NFC_Server/issues"
+  },
+  "homepage": "https://github.com/WellTemperedFate/NFC_Server#readme",
+  "devDependencies": {
+    "nodemon": "^1.12.5"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.13.6"
+  }
+}

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {NavController, NavParams } from 'ionic-angular';
 import { NFC, Ndef } from '@ionic-native/nfc';
 
 /**
@@ -9,7 +9,7 @@ import { NFC, Ndef } from '@ionic-native/nfc';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-write',
   templateUrl: 'write.html',
