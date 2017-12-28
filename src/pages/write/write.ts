@@ -56,7 +56,10 @@ export class WritePage {
             console.log(data.tag.ndefMessage[0]);
             var string_value = this.nfc.bytesToString(some_value);
             console.log(string_value);
-            var record = this.ndef.textRecord(this.input.toString());
+            var record = [
+              this.ndef.textRecord(this.input.toString(),"English", "text"),
+              this.ndef.uriRecord("https://github.com/WellTemperedFate/NFC_Ionic_app", "uri")
+          ];
             console.log(record);
 
             this.nfc.write([record]).then(()=>{
